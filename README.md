@@ -11,4 +11,22 @@
 
 ---
 
+### User Stories
 
+```
+As a user
+So that I can use the platform
+I want to be able to sign up.
+```
+
+```
+As a user
+So that I can log in securely
+I want to see an error message if my details are invalid.
+```
+
+```
+As a User
+So that I know my sign up is successful
+I want to see a confirmation page.
+```
