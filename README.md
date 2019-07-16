@@ -26,7 +26,31 @@ I want to see an error message if my details are invalid.
 ```
 
 ```
-As a User
+As a user
 So that I know my sign up is successful
 I want to see a confirmation page.
+```
+
+```
+As a user
+So that I can share my feelings
+I want to create a post.
+```
+
+```
+As a user
+So that I can keep track of my life
+I want to have my posts timestamped.
+```
+
+```
+As a user
+So that I can change my mind
+I want to be able to edit my posts.
+```
+
+```
+As a user
+So that I can't edit other user's posts
+I want to see an error when I try.
 ```
