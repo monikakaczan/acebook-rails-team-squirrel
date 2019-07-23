@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :posts, dependent: :destroy
+
   has_secure_password
 
   validates :email, presence: true, uniqueness: true
@@ -13,4 +15,9 @@ class User < ApplicationRecord
                        :length => { :within => 6..10 },
                        :allow_blank => true,
                        :on => :update
+  def can_edit?(post)
+    post.user_id == self.user_id
+  end
 end
+
+
