@@ -10,5 +10,14 @@ private
 
 puts 'here'
     redirect_to signup_url
-    end
   end
+
+  def current_user
+   if User.all == []
+     @current_user = nil
+   else
+     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+   end
+ end
+
+end

@@ -1,6 +1,6 @@
 <section class="section">
   <%= flash[:notice] %>
-  <%= link_to 'Logout', logout_path %>
+  <%= link_to 'Logout', session_path %>
   <div class="container">
   <% @posts.each do |post| %>
     <p><%= post.message %></p>

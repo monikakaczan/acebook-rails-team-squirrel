@@ -1,3 +1,4 @@
+
 class PostsController < ApplicationController
   def current_user
     if session[:user_id]
@@ -7,7 +8,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def index    
+  def index
     @posts = Post.all.order('created_at DESC')
   end
 
