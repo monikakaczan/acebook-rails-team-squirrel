@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def index    
+  def index
     @posts = Post.all.order('created_at DESC')
   end
 
@@ -17,15 +17,15 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = Post.new(session[:user_id])
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:id], session[:user_id])
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = Post.create(post_params, session[:user_id])
 
     if @post.save
       redirect_to @post
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:id], session[:user_id])
     if @post.update(post_params)
       redirect_to @post
     else
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:id], session[:user_id])
     @post.destroy
 
     redirect_to posts_path

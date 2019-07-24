@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:notice] = "Logged in!"
-      redirect_to posts_url 
+      redirect_to user_posts_url
     else
       flash.now[:alert] = "Email or password is invalid"
       render "new"
