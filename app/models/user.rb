@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  has_secure_password
+  has_many :posts, dependent: :destroy
+
+
 
   validates :email, presence: true, uniqueness: true
 
@@ -13,4 +15,8 @@ class User < ApplicationRecord
                        :length => { :within => 6..10 },
                        :allow_blank => true,
                        :on => :update
+
+
+ has_secure_password
+
 end

@@ -11,17 +11,20 @@ class PostsController < ApplicationController
     @posts = Post.all.order('created_at DESC')
   end
 
-  def show
-    @post = Post.find(params[:id])
-    redirect_to posts_path
-  end
+  # def show
+  #   @post = Post.find(params[:id])
+  #   redirect_to posts_path
+  # end
 
   def new
     @post = Post.new(session[:user_id])
   end
 
   def edit
-    @post = Post.find(params[:id], session[:user_id])
+    if current_user == @user.id
+
+      @post = Post.find(params[:id], session[:user_id])
+    end
   end
 
   def create
@@ -35,19 +38,32 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id], session[:user_id])
-    if @post.update(post_params)
-      redirect_to @post
-    else
+
+    if current_user == session[:user_id]
       render 'edit'
-    end
+    else
+      redirect_to @post
+    # checks id of the current_user, check if post belongs to user
+    # if it does equal each other, you can update the post
+    # if not, error message.
+    # @post = Post.find(params[:id], session[:user_id])
+    # if @post.update(post_params)
+    #   redirect_to @post
+    # else
+    #   render 'edit'
+    # end
+  end 
   end
 
   def destroy
-    @post = Post.find(params[:id], session[:user_id])
-    @post.destroy
+    if @user = current_user
 
-    redirect_to posts_path
+      @post = Post.find(params[:id], session[:user_id])
+      @post.destroy
+
+      redirect_to posts_path
+    end
+
   end
 
   private
