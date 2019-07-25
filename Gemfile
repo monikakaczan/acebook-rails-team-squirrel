@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "bulma-rails", "~> 0.7.5"
 gem 'bcrypt', '~> 3.1.7'
 # Use ActiveModel has_secure_password
 gem 'database_cleaner'
