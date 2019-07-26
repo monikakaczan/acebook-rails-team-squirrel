@@ -15,7 +15,6 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
 
-
     <section class="section">
   <%= flash[:notice] %>
   <div class="container">
@@ -23,16 +22,20 @@
     <p><%= post.message %></p>
     <p><%= post.created_at.strftime("%d %b %Y, %H:%M") %></p>
 
-    <% if current_user.id == post.user_id %>
-
+    <% if current_user.id == post.user_id %>    
+      <% post_creation = post.created_at%>
+      <% post_created_10mins_ago = post_creation + 600 %>
+      <% if Time.now > post_created_10mins_ago %>
+    <br>
+    <% else %>
       <%= link_to 'Edit', edit_user_post_path(current_user, post), :class => "button btn btn-primary btn-md" %>
       <%= link_to 'Delete', [current_user, post], :class => "button btn btn-primary btn-md",
             method: :delete,
             data: { confirm: 'Are you sure?' } %>
-
+      <% end %>
     </div>
     <br>
-      <% end %>
+    <% end %>
   </div>
 </section>
 </div>
