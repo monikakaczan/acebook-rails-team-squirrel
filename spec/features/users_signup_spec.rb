@@ -1,7 +1,7 @@
 
 require 'rails_helper'
 
-RSpec.feature "Sign up", type: :feature do
+RSpec.describe "Sign up", type: :feature do
   scenario "will let a user sign up" do
     sign_up
     expect(page).to have_content("User was successfully created.")

@@ -1,7 +1,7 @@
 require 'rails_helper'
 # require './spec/features/user_spec_helper'
 
-RSpec.feature "New post", type: :feature do
+RSpec.describe "New post", type: :feature do
   scenario "lets users submit posts and view them" do
     create_user_and_log_in
     click_link 'New Post'
