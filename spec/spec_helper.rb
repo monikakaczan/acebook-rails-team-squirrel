@@ -1,6 +1,9 @@
+require 'coveralls'
+Coveralls.wear!
+
+
 require 'simplecov'
 require 'simplecov-console'
-require 'coveralls'
 
 SimpleCov.start 'rails'do
  add_filter '/app/assets/'
