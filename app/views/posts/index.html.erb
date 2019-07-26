@@ -17,7 +17,7 @@
 
     <section class="section">
   <%= flash[:notice] %>
-  <div class="container">
+  <div class="container" id="wall">
   <% @posts.each do |post| %>
     <p><%= post.message %></p>
     <p><%= post.created_at.strftime("%d %b %Y, %H:%M") %></p>

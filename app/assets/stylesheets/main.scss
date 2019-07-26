@@ -1,6 +1,7 @@
-body{background: #4a4747;
+body{background:#99A1A1;
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  text-align: center;
 }
 
 #jumbotron-welcome{
@@ -11,14 +12,17 @@ body{background: #4a4747;
 .jumbotron{
   min-height: 100px;
   display: flex;
-
-
 }
+
 
 .navbar-nav {
     flex-direction: row;
+    background-color:  #F8F8F8;
 }
 
+.navbar-brand {
+  color: #F8F8F8;
+}
 
 .main-container {
   background-size: cover;
@@ -43,3 +47,4 @@ h1, h2 {
   padding: 30px;
   margin: 15px;
 }
+
