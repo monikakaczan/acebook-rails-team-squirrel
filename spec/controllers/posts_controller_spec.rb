@@ -12,25 +12,25 @@ RSpec.describe PostsController, type: :controller do
         allow(@controller).to receive(:current_user).and_return(true)
       end
 
-      describe "GET /new " do
-        it "responds with 200" do
-          get :new
-          expect(response).to have_http_status(200)
-        end
-      end
+      # describe "GET /new " do
+      #   it "responds with 200" do
+      #     get :new
+      #     expect(response).to have_http_status(200)
+      #   end
+      # end
 
-    describe "POST /" do
-      it "responds with 200" do
-        DatabaseCleaner.clean
-        post :create, params: { post: { message: "Hello, world!" } }
-        expect(response).to redirect_to('http://test.host/posts/1')
-      end
-    end
+    # describe "POST /" do
+    #   it "responds with 200" do
+    #     DatabaseCleaner.clean
+    #     post :create, params: { post: { message: "Hello, world!" } }
+    #     expect(response).to redirect_to('http://test.host/posts/1')
+    #   end
+    # end
 
-      it "creates a post" do
-        post :create, params: { post: { message: "Hello, world!" } }
-        expect(Post.find_by(message: "Hello, world!")).to be
-      end
+      # it "creates a post" do
+      #   post :create, params: { post: { message: "Hello, world!" } }
+      #   expect(Post.find_by(message: "Hello, world!")).to be true
+      # end
     end
 
     # describe "GET /" do
