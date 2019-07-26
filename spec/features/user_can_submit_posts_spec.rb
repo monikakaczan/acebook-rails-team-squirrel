@@ -1,7 +1,8 @@
 require 'rails_helper'
-require './spec/features/user_spec_helper'
+# require './spec/features/user_spec_helper'
+
 RSpec.feature "New post", type: :feature do
-  scenario "Can submit posts and view them" do
+  scenario "lets users submit posts and view them" do
     create_user_and_log_in
     click_link 'New Post'
     fill_in "post[message]", with: "Hello, world!"
@@ -10,7 +11,7 @@ RSpec.feature "New post", type: :feature do
 
   end
 
-  scenario "Can raise error message if less than 5 chars" do
+  scenario "can raise an error message for posts less than 5 chars" do
     create_user_and_log_in
     click_link 'New Post'
     fill_in "post[message]", with: "Hi"
@@ -19,7 +20,7 @@ RSpec.feature "New post", type: :feature do
     expect(page).to have_content("Message is too short (minimum is 5 characters)")
   end
 
-  scenario "Can raise error message if blank" do
+  scenario "can raise an error message for blank posts" do
     create_user_and_log_in
     click_link 'New Post'
     fill_in "post[message]", with: ""
@@ -28,7 +29,7 @@ RSpec.feature "New post", type: :feature do
     expect(page).to have_content("Message can't be blank")
   end
 
-  scenario "Can create new post and view them in a list" do
+  scenario "can create a new post and view them in a list" do
     create_user_and_log_in
     click_link 'New Post'
 
@@ -38,7 +39,7 @@ RSpec.feature "New post", type: :feature do
     expect(page).to have_content("Post 1")
   end
 
-  scenario "Can create new post and edit it" do
+  scenario "can create new post and edit it" do
     create_user_and_log_in
     click_link 'New Post'
 
