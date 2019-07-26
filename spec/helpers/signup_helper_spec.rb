@@ -3,7 +3,7 @@ def sign_up
   fill_in "user_email", with: "email@email.com"
   fill_in "user_password", with: "password1"
   fill_in "user_password_confirmation", with: "password1"
-  click_button "Create User"
+  click_button "Go!"
 end
 
 def short_password
@@ -11,7 +11,7 @@ def short_password
   fill_in "user_email", with: "email@email.com"
   fill_in "user_password", with: "passw"
   fill_in "user_password_confirmation", with: "passw"
-  click_button "Create User"
+  click_button "Go!"
 end
 
 def password_match
@@ -19,7 +19,7 @@ def password_match
   fill_in "user_email", with: "email@email.com"
   fill_in "user_password", with: "password"
   fill_in "user_password_confirmation", with: "notpassword"
-  click_button "Create User"
+  click_button "Go!"
 end
 
 def log_in
